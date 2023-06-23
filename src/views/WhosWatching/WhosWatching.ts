@@ -1,4 +1,5 @@
 import { defineComponent } from "vue"
+import supabase from "../../utils/supabase"
 
 const WhosWatching = defineComponent({
   name: 'WhosWatching',
@@ -7,8 +8,8 @@ const WhosWatching = defineComponent({
   },
 
   setup () {
-    const selectProfile = (profileId: number) => {
-      alert(`Profile selected: ${profileId}`);
+    const selectProfile = async (profileId: number) => {
+      await supabase.from('testTable').select();
     }
 
     return {
