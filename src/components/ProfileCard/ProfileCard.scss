@@ -1,0 +1,21 @@
+.profile {
+    &-icon {
+        width: 10vw;
+        height: 10vw;
+        border-radius: 4px;
+        background-image: url("https://occ-0-1527-34.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY5cwIbM7shRfcXmfQg98cqMqiZZ8sReZnj4y_keCAHeXmG_SoqLD8SXYistPtesdqIjcsGE-tHO8RR92n7NyxZpqcFS80YfbRFz.png?r=229");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+            row-gap: 14px;
+        }
+    }
+
+    &-name {
+        font-size: 24px;
+    }
+}

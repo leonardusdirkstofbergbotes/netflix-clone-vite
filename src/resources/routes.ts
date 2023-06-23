@@ -6,7 +6,7 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            redirect: '/browse'
+            redirect: '/whos-watching'
         },
         {
             path: '/login',
@@ -19,6 +19,10 @@ const router = createRouter({
         {
             path: '/forgot-password',
             component: () => import('../views/Auth/ForgotPassword/ForgotPassword.vue')
+        },
+        {
+            path: '/whos-watching',
+            component: () => import('../views/WhosWatching/WhosWatching.vue')
         },
         {
             path: '/browse',

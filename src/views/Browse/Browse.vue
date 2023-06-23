@@ -1,5 +1,5 @@
 <template>
-    <div>Browse page</div>
+    <h1>Browse Page</h1>
 </template>
 
 <script src="./Browse.ts" />
