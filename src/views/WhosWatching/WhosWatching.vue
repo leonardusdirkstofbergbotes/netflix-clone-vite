@@ -7,6 +7,8 @@
         <profile-card></profile-card>
         <profile-card></profile-card>
     </div>
+
+    <vue-button text="Manage Profiles" />
 </template>
 
 <script src="./WhosWatching.ts" />

@@ -1,0 +1,20 @@
+@import '/src/assets/sass/variables';
+
+button {
+    padding: 0.5rem 2rem;
+    font-size: 24px;
+    border-radius: 0;
+    border: 1px solid transparent;
+
+    &.primary {
+        transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        background-color: $body-bg;
+        color: $primary-color;
+        border-color: $primary-color;
+
+        &:hover, &:focus-visible {
+            color: white;
+            border-color: white;
+        }
+    }
+}

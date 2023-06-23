@@ -4,11 +4,14 @@ import App from './App.vue'
 import router from './resources/routes';
 
 import ProfileCard from './components/ProfileCard/ProfileCard.vue';
+import Button from './components/Button/Button.vue';
 
 const app = createApp(App);
 
 // register components
+app.component('vue-button', Button);
 app.component('profile-card', ProfileCard);
+
 
 app.use(router);
 app.mount('#app');

@@ -1,6 +1,6 @@
 <template>
-    <div></div>
+    <button :class="[color]">{{text}}</button>
 </template>
 
 <script src="./Button.ts" />
-<style lang="scss" src="./Buttons.scss" scoped />
+<style lang="scss" src="./Button.scss" scoped />
