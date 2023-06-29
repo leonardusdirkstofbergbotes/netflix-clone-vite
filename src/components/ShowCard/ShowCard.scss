@@ -4,11 +4,9 @@
     position: relative;
     width: 230px;
     border-radius: 3px;
-    transition: transform 0.4s ease-in-out;
 
     &.active {
         @include shadow;
-        transform: scale(1.5);
     }
 
     img {
@@ -19,7 +17,7 @@
 
     .hover-actions {
         background-color: $body-bg-darker;
-        visibility: hidden;
+        visibility: visible;
 
         &.active {
             visibility: visible;

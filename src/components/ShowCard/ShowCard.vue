@@ -4,10 +4,10 @@
 
         <div class="hover-actions" :class="{ 'active': active }">
             <div class="card-actions">
-                <div><icon-button /></div>
-                <div>v</div>
-                <div>P</div>
-                <div style="margin-left: auto;">^</div>
+                <div><icon-button filled icon="play" /></div>
+                <div><icon-button icon="done" /></div>
+                <div><icon-button icon="thumb_up" /></div>
+                <div style="margin-left: auto;"><icon-button icon="arrow_down" /></div>
             </div>
             <div class="card-disclaimer">
                 <div>93 % match</div>

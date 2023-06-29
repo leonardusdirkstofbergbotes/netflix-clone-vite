@@ -1,0 +1,20 @@
+@import '../../assets/sass/variables.scss';
+
+.icon {
+    background-color: $body-bg;
+    border-radius: 100%;
+    padding: 0.5rem;
+    border: 1px solid $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.filled {
+        background-color: $suttle-white;
+        border-color: $suttle-white;
+    }
+
+    img {
+        width: 30px;
+    }
+}
