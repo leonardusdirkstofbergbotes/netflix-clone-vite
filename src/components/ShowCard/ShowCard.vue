@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div class="card" @mouseenter="hoverHandler($event)" @mouseleave="active = false" :class="{ 'active': active }">
+        <img />
+    </div>
 </template>
 
 <script src="./ShowCard.ts" />

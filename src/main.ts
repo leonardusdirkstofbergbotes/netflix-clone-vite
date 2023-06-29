@@ -6,6 +6,7 @@ import router from './resources/routes';
 import ProfileCard from './components/ProfileCard/ProfileCard.vue';
 import Button from './components/Button/Button.vue';
 import Header from './components/Header/Header.vue';
+import ShowCard from './components/ShowCard/ShowCard.vue';
 import store from './resources/store/store';
 
 const app = createApp(App);
@@ -14,6 +15,7 @@ const app = createApp(App);
 app.component('vue-button', Button);
 app.component('profile-card', ProfileCard);
 app.component('vue-header', Header);
+app.component('show-card', ShowCard);
 
 
 

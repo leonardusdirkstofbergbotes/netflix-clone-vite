@@ -1,0 +1,19 @@
+@import '../../assets/sass/variables.scss';
+
+.card {
+    width: 230px;
+    background-color: $body-bg-darker;
+    border-radius: 3px;
+    transition: transform 0.4s ease-in-out;
+
+    &.active {
+        @include shadow;
+        transform: scale(1.5);
+    }
+
+    img {
+        width: 100%;
+        min-height: 130px;
+        border-radius: 3px;
+    }
+}
