@@ -1,25 +1,9 @@
 <template>
     <h1>Who's watching?</h1>
     <div class="whos-whatching">
-        <div class="card-wrapper" @click="selectProfile(1)">
+        <div v-for="profile in profiles" :key="profile.id" class="card-wrapper" @click="selectProfile(profile.id)">
             <profile-card></profile-card>
-            <span class="profile-name">Leonardus</span>
-        </div>
-        <div class="card-wrapper" @click="selectProfile(2)">
-            <profile-card></profile-card>
-            <span class="profile-name">Leonardus</span>
-        </div>
-        <div class="card-wrapper" @click="selectProfile(3)">
-            <profile-card></profile-card>
-            <span class="profile-name">Leonardus</span>
-        </div>
-        <div class="card-wrapper" @click="selectProfile(4)">
-            <profile-card></profile-card>
-            <span class="profile-name">Leonardus</span>
-        </div>
-        <div class="card-wrapper" @click="selectProfile(5)">
-            <profile-card></profile-card>
-            <span class="profile-name">Leonardus</span>
+            <span class="profile-name">{{profile.name}}</span>
         </div>
     </div>
 

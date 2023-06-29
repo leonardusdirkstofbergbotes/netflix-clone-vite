@@ -1,5 +1,5 @@
-import { defineComponent } from "vue"
-import supabase from "../../utils/supabase"
+import { defineComponent, onMounted, computed, ref } from "vue"
+import { useStore } from 'vuex';
 
 const WhosWatching = defineComponent({
   name: 'WhosWatching',
@@ -8,12 +8,25 @@ const WhosWatching = defineComponent({
   },
 
   setup () {
+    const store = useStore();
+    const profiles = computed(() => store.getters['getProfilesAvailable']);
+    const loading = ref<Boolean>(false);
+
     const selectProfile = async (profileId: number) => {
-      await supabase.from('testTable').select();
+        
     }
 
+    onMounted(async () => {
+      const USER_ID = 1;
+      loading.value = true;
+      await store.dispatch('fetchProfiles', USER_ID);
+      loading.value = false;
+    });
+
     return {
-      selectProfile
+      selectProfile,
+      profiles,
+      loading
     }
   }
 })
