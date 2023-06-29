@@ -10,23 +10,28 @@ const router = createRouter({
         },
         {
             path: '/login',
-            component: () => import('../views/Auth/Login/Login.vue')
+            component: () => import('../views/Auth/Login/Login.vue'),
+            name: 'login'
         },
         {
             path: '/register',
-            component: () => import('../views/Auth/Register/Register.vue')
+            component: () => import('../views/Auth/Register/Register.vue'),
+            name: 'register'
         },
         {
             path: '/forgot-password',
-            component: () => import('../views/Auth/ForgotPassword/ForgotPassword.vue')
+            component: () => import('../views/Auth/ForgotPassword/ForgotPassword.vue'),
+            name: 'forgot-password'
         },
         {
             path: '/whos-watching',
-            component: () => import('../views/WhosWatching/WhosWatching.vue')
+            component: () => import('../views/WhosWatching/WhosWatching.vue'),
+            name: 'whos-whatching'
         },
         {
             path: '/browse',
-            component: () => import('../views/Browse/Browse.vue')
+            component: () => import('../views/Browse/Browse.vue'),
+            name: 'browse'
         }
     ],
 });

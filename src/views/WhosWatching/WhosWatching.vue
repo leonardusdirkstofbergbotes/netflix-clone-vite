@@ -1,7 +1,7 @@
 <template>
     <h1>Who's watching?</h1>
     <div class="whos-whatching">
-        <div v-for="profile in profiles" :key="profile.id" class="card-wrapper" @click="selectProfile(profile.id)">
+        <div v-for="profile in profiles" :key="profile.id" class="card-wrapper" @click="selectProfile(profile)">
             <profile-card></profile-card>
             <span class="profile-name">{{profile.name}}</span>
         </div>

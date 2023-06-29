@@ -1,5 +1,5 @@
 <template>
-    <h1>Browse Page</h1>
+    <vue-header />
 </template>
 
 <script src="./Browse.ts" />

@@ -4,20 +4,31 @@ import supabase from "../../utils/supabase";
 export const profileModule = {
   state() {
     return {
-      profilesAvailable: <IProfile[]> []
+      profilesAvailable: <IProfile[]> [],
+      activeProfile: <IProfile | null> null
     };
   },
   mutations: {
     setAvaliableProfiles(state: any, profilesAvailable: IProfile[]) {
       state.profilesAvailable = profilesAvailable;
     },
+
+    setActiveProfile(state: any, profile: IProfile) {
+      state.activeProfile = profile;
+    }
   },
   actions: {
-    async fetchProfiles({commit}, userId: number) {
-      let {data, error } = await supabase.from("Profiles").select("id, name").eq('user_id', userId);
+    async fetchProfiles({commit, state}, userId: number) {
+      if (state.profilesAvailable.length == 0) {
+        let {data, error } = await supabase.from("Profiles").select("id, name").eq('user_id', userId);
 
-      if (error == null) commit("setAvaliableProfiles", data);
+        if (error == null) commit("setAvaliableProfiles", data);
+      }
     },
+
+    selectProfile ({commit}, profileSelected: IProfile) {
+      commit('setActiveProfile', profileSelected);
+    }
   },
   getters: {
     getProfilesAvailable(state: any) {

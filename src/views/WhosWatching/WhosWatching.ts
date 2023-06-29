@@ -1,5 +1,7 @@
 import { defineComponent, onMounted, computed, ref } from "vue"
 import { useStore } from 'vuex';
+import { IProfile } from '../../resources/interfaces/IProfile';
+import router from "../../resources/routes";
 
 const WhosWatching = defineComponent({
   name: 'WhosWatching',
@@ -12,8 +14,9 @@ const WhosWatching = defineComponent({
     const profiles = computed(() => store.getters['getProfilesAvailable']);
     const loading = ref<Boolean>(false);
 
-    const selectProfile = async (profileId: number) => {
-        
+    const selectProfile = async (profile: IProfile) => {
+        store.dispatch('selectProfile', profile);
+        router.push({name: 'browse'});
     }
 
     onMounted(async () => {
