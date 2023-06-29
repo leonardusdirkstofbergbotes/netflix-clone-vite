@@ -7,6 +7,7 @@ export default {
 
   setup () {
     const active = ref<Boolean>(false);
+    const expanded = ref<Boolean>(false);
 
     const hoverHandler = (event: any) => {
       const itemHovered = event.target;
@@ -20,15 +21,22 @@ export default {
       }, HOVER_TIME_BEFORE_ACTIVE);
     }
 
+    const mouseLeaveHandler = () => {
+      console.log('mouse leave handler');
+      if (!expanded.value) active.value = false;
+    }
+
     watch(active, (isActive) => {
       if (isActive) {
+        // fetch movie and start playing as soon as its ready
         console.log('now active');
       }
     })
 
     return {
       hoverHandler,
-      active
+      mouseLeaveHandler,
+      active,
     }
   }
 }

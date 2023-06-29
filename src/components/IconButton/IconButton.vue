@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>Icon</div>
 </template>
 
 <script src="./IconButton.ts" />
