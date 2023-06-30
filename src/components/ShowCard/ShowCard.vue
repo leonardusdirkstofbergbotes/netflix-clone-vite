@@ -2,7 +2,7 @@
     <div class="card" @mouseenter="hoverHandler($event)" @mouseleave="mouseLeaveHandler()" :class="{ 'active': active }">
         <img src="/" />
 
-        <div class="hover-actions" :class="{ 'active': active }">
+        <div class="hover-actions" v-if="active">
             <div class="card-actions">
                 <div><icon-button filled icon="play" /></div>
                 <div><icon-button icon="done" /></div>
