@@ -9,6 +9,14 @@
     justify-content: center;
     align-items: center;
 
+    &:hover {
+        border-color: white;
+        box-shadow: 1px 0px 3px -11px rgba(255,255,255,0.75);
+        -webkit-box-shadow: 1px 0px 3px -11px rgba(255,255,255,0.75);
+        -moz-box-shadow: 1px 0px 3px -11px rgba(255,255,255,0.75);
+        background-color: $secondary-color-2;
+    }
+
     &.filled {
         background-color: $suttle-white;
         border-color: $suttle-white;

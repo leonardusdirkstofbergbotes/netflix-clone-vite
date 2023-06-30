@@ -19,24 +19,30 @@ export default {
 
         active.value = elementBeingHoveredOnNow == itemHovered;
       }, HOVER_TIME_BEFORE_ACTIVE);
-    }
+    };
 
     const mouseLeaveHandler = () => {
       console.log('mouse leave handler');
       if (!expanded.value) active.value = false;
-    }
+    };
+
+    const expandCard = () => {
+      expanded.value = true;
+    };
 
     watch(active, (isActive) => {
       if (isActive) {
         // fetch movie and start playing as soon as its ready
         console.log('now active');
       }
-    })
+    });
 
     return {
       hoverHandler,
       mouseLeaveHandler,
+      expandCard,
       active,
+      expanded
     }
   }
 }

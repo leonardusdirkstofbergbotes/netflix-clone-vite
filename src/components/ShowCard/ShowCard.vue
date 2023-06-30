@@ -1,5 +1,5 @@
 <template>
-    <div class="card" @mouseenter="hoverHandler($event)" @mouseleave="mouseLeaveHandler()" :class="{ 'active': active }">
+    <div class="card" @mouseenter="hoverHandler($event)" @mouseleave="mouseLeaveHandler()" :class="{ 'active': active, 'expanded': expanded }">
         <img src="/" />
 
         <div class="hover-actions" v-if="active">
@@ -7,7 +7,7 @@
                 <div><icon-button filled icon="play" /></div>
                 <div><icon-button icon="done" /></div>
                 <div><icon-button icon="thumb_up" /></div>
-                <div style="margin-left: auto;"><icon-button icon="arrow_down" /></div>
+                <div style="margin-left: auto;"><icon-button @click="expandCard()" icon="arrow_down" /></div>
             </div>
             <div class="card-disclaimer">
                 <div>93 % match</div>
@@ -19,6 +19,17 @@
                 <div>Dark</div>
                 <div>Suspensefull</div>
                 <div>Teen</div>
+            </div>
+        </div>
+
+        <div v-if="expanded" class="expanded-actions">
+            <div class="grid">
+                <div class="left">
+                    left content
+                </div>
+                <div class="right">
+                    right content
+                </div>                
             </div>
         </div>
     </div>
