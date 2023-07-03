@@ -1,7 +1,9 @@
 <template>
     <vue-header />
-    <div style="height: 100vh; width: 100vw; border: 1px solid pink;">Hero Video</div>
+    <div style="height: 80vh;  border: 1px solid pink">Hero Video</div>
     <div style="display: flex; gap: 0.5rem">
+        <show-card />
+        <show-card />
         <show-card />
         <show-card />
         <show-card />
