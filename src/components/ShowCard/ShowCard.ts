@@ -1,8 +1,13 @@
+import { PropType } from 'vue';
 import { ref, watch } from 'vue';
+import { IMovie } from '../../resources/interfaces/IMovie';
 
 export default {
   name: 'ShowCard',
   components: {
+  },
+  props: {
+    showDetails: [] as PropType<IMovie>
   },
 
   setup () {

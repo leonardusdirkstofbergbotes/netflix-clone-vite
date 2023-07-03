@@ -1,7 +1,6 @@
-import { ref } from 'vue';
+import { useStore } from 'vuex';
 import { IMovie } from './../../resources/interfaces/IMovie';
-import { onMounted } from 'vue';
-import { tmdb, tmdbPaths } from '../../utils/tmdb';
+import { computed, onMounted } from 'vue';
 
 export default {
   name: 'Browse',
@@ -9,15 +8,15 @@ export default {
   },
 
   setup () {
-    const shows = ref<IMovie[]>([]); 
+    const store = useStore();
+    const shows = computed(() => store.getters['getShows']);
 
     onMounted (async () => {
-      await tmdb(tmdbPaths.fetchTrending).then(response => response.json())
-        .then((data: IMovie[]) => {
-          shows.value = data;
-        });
+      await store.dispatch('fetchShows');
     });
 
-    return shows;
+    return {
+      shows
+    };
   }
 }

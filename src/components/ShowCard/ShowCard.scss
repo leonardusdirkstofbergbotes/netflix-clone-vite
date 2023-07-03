@@ -12,11 +12,11 @@
     background-color: $body-bg-darker;
 
     img {
-        min-width: 100%;
+        width: 100%;
         min-height: 130px;
         border-radius: 3px;
-        background-image: url("https://cdn.newsday.com/image-service/version/c:ODZhYWQ0MmUtYjMzOS00:YWEyNDM5/etjuma063017_web.jpg");
         background-size: cover;
+        background-position: center;
     }
 
     .hover-actions {
@@ -73,7 +73,6 @@
 
     img {
         width: 100%;
-        background-image: url("https://cdn.newsday.com/image-service/version/c:ODZhYWQ0MmUtYjMzOS00:YWEyNDM5/etjuma063017_web.jpg");
         background-size: cover;
     }
     
