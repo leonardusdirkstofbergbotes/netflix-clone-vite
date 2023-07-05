@@ -9,6 +9,7 @@ import IconButton from './components/IconButton/IconButton.vue';
 import Header from './components/Header/Header.vue';
 import Footer from './components/Footer/Footer.vue';
 import ShowCard from './components/ShowCard/ShowCard.vue';
+import Carousel from './components/Carousel/Carousel.vue';
 import store from './resources/store/store';
 
 const app = createApp(App);
@@ -20,8 +21,7 @@ app.component('profile-card', ProfileCard);
 app.component('vue-header', Header);
 app.component('vue-footer', Footer);
 app.component('show-card', ShowCard);
-
-
+app.component('carousel', Carousel);
 
 app.use(router);
 app.use(store);

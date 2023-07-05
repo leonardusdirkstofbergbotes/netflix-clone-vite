@@ -1,9 +1,14 @@
 <template>
     <vue-header />
     <div style="height: 80vh;  border: 1px solid pink">Hero Video</div>
-    <div style="display: flex; gap: 1rem">
+    <carousel name="Top Trending">
+        <template #items>
+            <show-card v-for="show in shows" :key="show.id" :show-details="show" />
+        </template>
+    </carousel>
+    <!-- <div style="display: flex; gap: 1rem">
         <show-card v-for="show in shows" :key="show.id" :show-details="show" />
-    </div>
+    </div> -->
     <vue-footer></vue-footer>
 </template>
 
