@@ -1,5 +1,4 @@
 import { useStore } from 'vuex';
-import { IMovie } from './../../resources/interfaces/IMovie';
 import { computed, onMounted } from 'vue';
 
 export default {

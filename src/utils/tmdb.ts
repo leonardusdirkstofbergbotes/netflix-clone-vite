@@ -17,10 +17,15 @@ export const tmdbPaths = {
     fetchWestern: `/discover/movie?with_genres=37`,
     fetchAnimation: `/discover/movie?with_genres=16`,
     fetchTV: `/discover/movie?with_genres=10770`,
+    search: '/search/multi'
 }
 
 export function tmdb (urlPath: string) {
     return fetch(`${KEYS.TMDB_BASE_URL}${urlPath}`, { 
         headers: headers 
     })
+}
+
+export function searchTmdb (query: string) {
+    return tmdb(`${tmdbPaths.search}?language=en-US&query=${query}&page=1&include_adult=false`);
 }

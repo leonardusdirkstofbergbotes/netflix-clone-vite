@@ -28,11 +28,11 @@ export const profileModule = {
 
     selectProfile ({commit}, profileSelected: IProfile) {
       commit('setActiveProfile', profileSelected);
-    }
+    },
   },
   getters: {
     getProfilesAvailable(state: any) {
       return state.profilesAvailable;
-    },
+    }
   },
 };

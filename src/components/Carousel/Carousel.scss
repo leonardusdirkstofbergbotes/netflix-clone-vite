@@ -2,13 +2,16 @@
 
 .carousel-wrapper {
     position: relative;
+    
+    height: 350px;
+    overflow-x: auto;
+    overflow-y: visible;
 }
 
 .carousel {
     border: 1px solid brown;
     display: flex;
     gap: 1rem;
-    overflow: visible;
 
     .next, .previous {
         background-color: black;

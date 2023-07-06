@@ -1,0 +1,30 @@
+.search-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.2rem;
+    position: relative;
+
+    input {
+        display: none;
+        background-color: transparent;
+        color: white;
+        border: none;
+        font-size: 1rem;
+        outline: none;
+        min-width: 210px;
+    }
+
+    &.open {
+        border: 1px solid white;
+        padding-right: 2.5rem;
+
+        input {
+            display: block;
+        }
+    }
+
+    .reset-search {
+        position: absolute;
+        right: 0;
+    }
+}

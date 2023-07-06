@@ -4,6 +4,10 @@ export default {
   },
   props: {
     icon: String,
-    filled: Boolean
+    filled: Boolean,
+    isButton: {
+      type: Boolean,
+      default: true
+    }
   }
 }
