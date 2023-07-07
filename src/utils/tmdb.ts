@@ -6,7 +6,7 @@ const headers = {
 }
 
 export const tmdbPaths = {
-    fetchTrending: `/trending/all/week?language=en-US`,
+    fetchTrending: `/trending/all/week?language=en-US&append_to_response=videos`,
     fetchTopRated: `/movie/top_rated?language=en-US`,
     fetchActionMovies: `/discover/movie?with_genres=28`,
     fetchComedyMovies: `/discover/movie?with_genres=35`,
@@ -25,6 +25,10 @@ export function tmdb (urlPath: string) {
         headers: headers 
     })
 }
+
+export function getShow (movieId: string) {
+    return tmdb(`/movie/${movieId}/videos?language=en-US`);
+};
 
 export function searchTmdb (query: string) {
     return tmdb(`${tmdbPaths.search}?language=en-US&query=${query}&page=1&include_adult=false`);
