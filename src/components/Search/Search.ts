@@ -14,9 +14,14 @@ export default {
   setup (props, {emit}) {
     const open = ref<Boolean>(false);
     const searchValue = ref<String>("");
+    const inputRef = ref<null | HTMLInputElement>(null);
 
     const toggleSearch = () => {
-      if (!open.value) open.value = true; // also focus the input
+      if (!open.value) {
+        open.value = true;
+        const searchBox = inputRef.value as HTMLInputElement;
+        searchBox.focus();
+      }
       else if (searchValue.value === "") open.value = false;
     };
 
@@ -45,6 +50,7 @@ export default {
     return {
       open,
       searchValue,
+      inputRef,
       toggleSearch,
       removeText
     }

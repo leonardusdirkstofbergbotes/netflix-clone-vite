@@ -9,9 +9,7 @@
         </ul>
 
         <div class="actions">
-            <div class="search-wrapper">
-                <search />
-            </div>
+            <search />
             <div><icon-button :is-button="false" icon="notifications" /></div>
             <div>Profile</div>
         </div>
