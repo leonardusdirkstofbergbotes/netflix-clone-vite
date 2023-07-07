@@ -1,7 +1,7 @@
 <template>
     <div ref="cardRef" class="card-wrapper">
         <div class="card" @mouseenter="hoverHandler($event)" @mouseleave="mouseLeaveHandler()" :class="{ 'active': active }">
-            <img :src="`https://image.tmdb.org/t/p/w500${showDetails.poster_path}`" />
+            <img :src="`https://image.tmdb.org/t/p/w300${showDetails.poster_path}`" />
 
             <div class="hover-actions" v-if="active">
                 <div class="card-actions">

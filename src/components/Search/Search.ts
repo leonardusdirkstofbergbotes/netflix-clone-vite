@@ -1,17 +1,13 @@
+import { useStore } from 'vuex';
 import { ref, watch } from 'vue';
 import { searchTmdb } from '../../utils/tmdb';
 export default {
   name: 'Search',
   components: {
   },
-  props: {
 
-  },
-  emits: [
-    'searchEmpty'
-  ],
-
-  setup (props, {emit}) {
+  setup () {
+    const store = useStore();
     const open = ref<Boolean>(false);
     const searchValue = ref<String>("");
     const inputRef = ref<null | HTMLInputElement>(null);
@@ -30,21 +26,8 @@ export default {
     };
 
     watch(searchValue, (newSearchValue: string) => {
-      if (newSearchValue === '') emit('searchEmpty');
-      else {
-        // Perform search
-        searchTmdb(newSearchValue).then(response => {
-          if (response.ok) {
-            response.json().then(data => {
-              // Handle search results
-              console.log(data);
-            });
-          }
-          else {
-            console.log('not okay');
-          }
-        });
-      }
+      if (newSearchValue === '') store.commit('resetSearchedShows');
+      else store.dispatch('searchShows', newSearchValue);
     })
 
     return {

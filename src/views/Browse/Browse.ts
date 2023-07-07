@@ -9,13 +9,15 @@ export default {
   setup () {
     const store = useStore();
     const shows = computed(() => store.getters['getShows']);
+    const hasSearchResults = computed(() => store.getters['getSearchedShows'] != undefined);
 
     onMounted (async () => {
       await store.dispatch('fetchShows');
     });
 
     return {
-      shows
+      shows,
+      hasSearchResults
     };
   }
 }

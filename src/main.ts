@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer.vue';
 import ShowCard from './components/ShowCard/ShowCard.vue';
 import Carousel from './components/Carousel/Carousel.vue';
 import Search from './components/Search/Search.vue';
+import SearchResults from './components/SearchResults/SearchResults.vue';
 import store from './resources/store/store';
 
 const app = createApp(App);
@@ -24,6 +25,8 @@ app.component('vue-footer', Footer);
 app.component('show-card', ShowCard);
 app.component('carousel', Carousel);
 app.component('search', Search);
+app.component('search-results', SearchResults);
+
 
 
 app.use(router);

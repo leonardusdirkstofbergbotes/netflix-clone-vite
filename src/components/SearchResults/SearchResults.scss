@@ -1,0 +1,9 @@
+.search-results {
+    .shows {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        row-gap: 4rem;
+        flex-wrap: wrap;
+    }
+}
