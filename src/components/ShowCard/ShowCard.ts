@@ -36,7 +36,7 @@ export default {
       playTrailer.value = false;
     };
 
-    const toggleCard = (event: MouseEvent) => {
+    const toggleCard = () => {
       if (expanded.value) active.value = false;
       
       expanded.value = !expanded.value;
