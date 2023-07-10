@@ -10,7 +10,7 @@
 
         <div class="actions">
             <search />
-            <div><icon-button :is-button="false" icon="notifications" /></div>
+            <icon-button :is-button="false" icon="notifications" />
             <div>Profile</div>
         </div>
     </nav>

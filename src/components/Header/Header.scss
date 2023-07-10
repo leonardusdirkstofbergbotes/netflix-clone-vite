@@ -13,7 +13,7 @@ nav {
     background-color: black;
     transition: background-color 0.5s ease-in-out;
 
-    &.transparent {
+    &.transparent, .icon {
         background-color: transparent;
     }
 

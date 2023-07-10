@@ -8,6 +8,10 @@
     transition: width 0.3s ease-in-out, border 0.3s ease-in-out, padding-right 0.3s ease-in-out;
     border: 1px solid transparent;
 
+    .icon {
+        background-color: transparent;
+    }
+
     input {
         background-color: transparent;
         color: white;
