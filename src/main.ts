@@ -13,6 +13,7 @@ import MoreInfo from './components/MoreInfo/MoreInfo.vue';
 import Carousel from './components/Carousel/Carousel.vue';
 import Search from './components/Search/Search.vue';
 import SearchResults from './components/SearchResults/SearchResults.vue';
+import LandingPageShow from './components/LandingPageShow/LandingPageShow.vue';
 import store from './resources/store/store';
 
 const app = createApp(App);
@@ -28,6 +29,8 @@ app.component('more-info', MoreInfo);
 app.component('carousel', Carousel);
 app.component('search', Search);
 app.component('search-results', SearchResults);
+app.component('landing-page-show', LandingPageShow);
+
 
 
 

@@ -14,6 +14,10 @@ export default {
   setup (props, {emit}) {
     const closeCard = () => {
       emit('closed');
+    };
+
+    return {
+      closeCard
     }
   }
 }
