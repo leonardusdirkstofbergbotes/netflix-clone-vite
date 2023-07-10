@@ -24,9 +24,18 @@
             font-size: 1.2vw;
         }
 
-        .buttons {
+        .rating, .buttons {
             display: flex;
             gap: 1rem;
         }
+    }
+
+    .parental-guidance-banner {
+        position: absolute;
+        bottom: 9.5rem;
+        right: 0;
+        height: 40px;
+        width: 100px;
+        border: 1px solid white;
     }
 }

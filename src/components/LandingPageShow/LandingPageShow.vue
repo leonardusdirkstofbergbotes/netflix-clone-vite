@@ -12,6 +12,7 @@
                 <vue-button color="primary" text="Show Info" />
             </div>
         </div>
+        <div class="parental-guidance-banner">PG 13</div>
     </div>
 </template>
 
