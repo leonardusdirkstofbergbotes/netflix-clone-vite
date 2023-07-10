@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav :class="{'transparent': transparentNavbar}">
         <div>Icon left</div>
 
         <ul class="menu-links">
