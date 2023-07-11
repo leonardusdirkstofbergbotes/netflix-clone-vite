@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="expanded-card" :class="{ 'expanded': expanded }" :style="positionOfPopup">
         <img src="/" />
         <icon-button icon="close" class="close-expanded" @click="closeCard()"></icon-button>
         <div class="expanded-card-actions">

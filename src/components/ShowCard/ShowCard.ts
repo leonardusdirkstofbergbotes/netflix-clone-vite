@@ -2,6 +2,7 @@ import { PropType, unref } from 'vue';
 import { ref, watch } from 'vue';
 import { IMovie } from '../../resources/interfaces/IMovie';
 import { getShow } from '../../utils/tmdb';
+import MoreInfo from '../MoreInfo/MoreInfo';
 
 export default {
   name: 'ShowCard',
@@ -13,11 +14,10 @@ export default {
 
   setup (props) {
     const active = ref<boolean>(false);
-    const expanded = ref<boolean>(false);
-    const positionOfPopup = ref<{}>({left : 0, top: 0, transform: 'translateX(-33%) translateY(-33%) scale(0.35)'});
-    const cardRef = ref<HTMLElement | null>(null);
+    const popupRef = ref<typeof MoreInfo | null>(null);
     const youtubeKey = ref<string | undefined>(undefined);
     const playTrailer = ref<boolean>(false);
+    const popupActive = ref<boolean>(false);
 
     const hoverHandler = (event: MouseEvent) => {
       const itemHovered = event.target;
@@ -32,27 +32,8 @@ export default {
     };
 
     const mouseLeaveHandler = () => {
-      if (!expanded.value) active.value = false;
-      playTrailer.value = false;
-    };
-
-    const toggleCard = () => {
-      if (expanded.value) active.value = false;
-      
-      expanded.value = !expanded.value;
       active.value = false;
-    };
-
-    const setPositionOfPopup = () => {
-      const PADDING_FROM_TOP = 80;
-      const CENTER_OF_SCREEN = window.innerWidth / 2;
-      const card = cardRef.value as HTMLElement;
-      const cardOffset = card.getBoundingClientRect();
-      positionOfPopup.value = {
-        top: `-${cardOffset.top - PADDING_FROM_TOP}px`,
-        left: `${CENTER_OF_SCREEN - cardOffset.left}px`,
-        transform: 'translateX(-50%) scale(1)'
-      };
+      playTrailer.value = false;
     };
 
     const fetchTrailerId = () => {
@@ -80,32 +61,23 @@ export default {
   
     watch(youtubeKey, (newYoutubeKey: string | undefined) => {
       if (newYoutubeKey != undefined)  {
-        if (active.value || expanded.value) playTrailer.value = true;
+        if (active.value) playTrailer.value = true;
       }
       else playTrailer.value = false;
-    })
+    });
 
-    watch(expanded, (isExpanded) => {
-      if (isExpanded) setPositionOfPopup();
-      else {
-        positionOfPopup.value = {
-          top: 0,
-          left: 0,
-          transform: 'translateX(-33%) translateY(-33%) scale(0.35)'
-        };
-      }
-    })
+    watch(popupActive, (isPopupOpen: boolean) => {
+      if (isPopupOpen) active.value = false;
+    });
 
     return {
       hoverHandler,
       mouseLeaveHandler,
-      toggleCard,
       youtubeKey,
       playTrailer,
       active,
-      expanded,
-      positionOfPopup,
-      cardRef
+      popupRef,
+      popupActive
     }
   }
 }

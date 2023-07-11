@@ -1,7 +1,7 @@
 <template>
-    <div ref="cardRef" class="card-wrapper">
-        <div class="card" @mouseenter="hoverHandler($event)" @mouseleave="mouseLeaveHandler()" :class="{ 'active': active }">
-            <img v-if="!playTrailer" :src="`https://image.tmdb.org/t/p/w300${showDetails.poster_path}`" />
+    <div ref="cardRef" class="card-wrapper" @mouseleave="mouseLeaveHandler()">
+        <div class="card" @mouseenter="hoverHandler($event)" :class="{ 'active': active }">
+            <img v-if="!playTrailer" :src="`https://image.tmdb.org/t/p/w300${showDetails.backdrop_path}`" />
             <iframe v-else :src="`https://www.youtube-nocookie.com/embed/${youtubeKey}?controls=0&autoplay=1&start=0&rel=0&fs=0&mute=1`" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
             <div class="hover-actions" v-if="active">
@@ -9,7 +9,7 @@
                     <div><icon-button filled icon="play" /></div>
                     <div><icon-button icon="done" /></div>
                     <div><icon-button icon="thumb_up" /></div>
-                    <div style="margin-left: auto;"><icon-button @click="toggleCard()" icon="arrow_down" /></div>
+                    <div style="margin-left: auto;"><icon-button @click="$refs.popupRef.openPopup()" icon="arrow_down" /></div>
                 </div>
                 <div class="card-disclaimer">
                     <div>93 % match</div>
@@ -25,9 +25,7 @@
             </div>
         </div>
 
-        <div :class="{ 'expanded': expanded }" class="expanded-card" :style="positionOfPopup">
-            <more-info @closed="toggleCard()" />
-        </div>
+        <more-info ref="popupRef" @toggled="popupActive = $event" :cardRef="$refs.cardRef" />
     </div>
 </template>
 

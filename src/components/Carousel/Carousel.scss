@@ -3,18 +3,17 @@
 .carousel-wrapper {
     position: relative;
     margin: 0 auto;
-    height: 350px;
     width: 93vw;
 }
 
 .carousel {
     border: 1px solid brown;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
 
     .next, .previous {
         background-color: rgba(0, 0, 0, 0.543);
-        width: 100px;
+        width: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
