@@ -37,8 +37,14 @@
         @include shadow;
         transform: scale(1.6) translateY(-40px);
         z-index: 2;
+        
+        iframe {
+            border-radius: 3px;
+            width: 100%;
+            min-height: 130px;  
+        }
 
-        img {
+        img, iframe {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }

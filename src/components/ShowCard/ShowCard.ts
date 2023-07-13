@@ -2,7 +2,6 @@ import { PropType, unref } from 'vue';
 import { ref, watch } from 'vue';
 import { IMovie } from '../../resources/interfaces/IMovie';
 import { getShow } from '../../utils/tmdb';
-import MoreInfo from '../MoreInfo/MoreInfo';
 
 export default {
   name: 'ShowCard',
@@ -14,7 +13,6 @@ export default {
 
   setup (props) {
     const active = ref<boolean>(false);
-    const popupRef = ref<typeof MoreInfo | null>(null);
     const youtubeKey = ref<string | undefined>(undefined);
     const playTrailer = ref<boolean>(false);
     const popupActive = ref<boolean>(false);
@@ -76,7 +74,6 @@ export default {
       youtubeKey,
       playTrailer,
       active,
-      popupRef,
       popupActive
     }
   }
