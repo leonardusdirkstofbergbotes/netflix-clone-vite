@@ -16,6 +16,8 @@ export default {
     const youtubeKey = ref<string | undefined>(undefined);
     const playTrailer = ref<boolean>(false);
     const popupActive = ref<boolean>(false);
+    const playTimeCount = ref<number>(0);
+    let timer: NodeJS.Timer | null = null;
 
     const hoverHandler = (event: MouseEvent) => {
       const itemHovered = event.target;
@@ -66,6 +68,17 @@ export default {
 
     watch(popupActive, (isPopupOpen: boolean) => {
       if (isPopupOpen) active.value = false;
+    });
+
+    watch(playTrailer, (isPlayingTrailer: boolean) => {
+      if (isPlayingTrailer) {
+        timer = setInterval(() => {
+          playTimeCount.value++;
+        }, 1000);
+      } else {
+        clearInterval(timer as NodeJS.Timer);
+        playTimeCount.value = 0;
+      }
     });
 
     return {
