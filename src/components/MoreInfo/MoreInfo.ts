@@ -1,11 +1,15 @@
-import { ref } from 'vue';
+import { PropType, ref } from 'vue';
+import { IMovie } from '../../resources/interfaces/IMovie';
 export default {
   name: 'MoreInfo',
   components: {
   },
 
   props: {
-    cardRef: HTMLElement
+    cardRef: HTMLElement,
+    youtubeKey: String,
+    startPlayingAt: Number,
+    showDetails: [] as PropType<IMovie>
   },
 
   emits: [
