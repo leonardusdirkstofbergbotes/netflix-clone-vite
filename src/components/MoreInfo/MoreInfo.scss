@@ -2,16 +2,16 @@
 
 .expanded-card {
     transition: top 0.3s ease-in-out, left 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    min-width: 55vw;
+    min-width: 60vw;
     position: absolute;
     left: 0;
     top: 0;
     visibility: hidden;
     background-color: $body-bg-darker;
 
-    img {
+    img, iframe {
         width: 100%;
-        background-size: cover;
+        min-height: 60vh;
     }
     
     &.expanded {

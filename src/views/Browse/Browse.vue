@@ -4,7 +4,9 @@
         <search-results class="search-results-wrapper" v-if="hasSearchResults"></search-results>
         <div v-else>
             <landing-page-show />
-            <carousel name="Top Trending" :items="shows" />
+            <div class="carousel-wrapper" v-for="(shows, name) in shows" :key="name">
+                <carousel :name="name" :items="shows" />
+            </div>
         </div>
     </div>
     <vue-footer></vue-footer>

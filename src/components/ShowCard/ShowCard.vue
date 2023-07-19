@@ -25,11 +25,11 @@
             </div>
         </div>
 
-        <more-info 
+        <more-info
             ref="popupRef" 
             :show-details="showDetails" 
             :youtube-key="youtubeKey" 
-            :start-playing-at="playTimeCount"
+            :time-played-already="playTimeCount"
             @toggled="popupActive = $event" :cardRef="$refs.cardRef" 
         />
     </div>

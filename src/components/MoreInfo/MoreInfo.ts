@@ -1,4 +1,4 @@
-import { PropType, ref } from 'vue';
+import { PropType, ref, watch } from 'vue';
 import { IMovie } from '../../resources/interfaces/IMovie';
 export default {
   name: 'MoreInfo',
@@ -8,7 +8,7 @@ export default {
   props: {
     cardRef: HTMLElement,
     youtubeKey: String,
-    startPlayingAt: Number,
+    timePlayedAlready: Number,
     showDetails: [] as PropType<IMovie>
   },
 
@@ -19,6 +19,7 @@ export default {
   setup (props, {emit}) {
     const positionOfPopup = ref<{}>({left : 0, top: 0, transform: 'translateX(-33%) translateY(-33%) scale(0.35)'});
     const expanded = ref<boolean>(false);
+    const startPlayingVideoFrom = ref<number>(0);
 
     const openPopup = () => {
       setPositionOfPopup();
@@ -48,9 +49,14 @@ export default {
       emit('toggled', false);
     };
 
+    watch(expanded, (isExpanded: boolean) => {
+      if (isExpanded) startPlayingVideoFrom.value = props.timePlayedAlready;
+    })
+
     return {
       positionOfPopup,
       expanded,
+      startPlayingVideoFrom,
       closeCard,
       openPopup
     }

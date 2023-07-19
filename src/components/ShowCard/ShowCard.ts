@@ -67,7 +67,12 @@ export default {
     });
 
     watch(popupActive, (isPopupOpen: boolean) => {
-      if (isPopupOpen) active.value = false;
+      if (isPopupOpen) {
+        setTimeout(() => {
+          playTrailer.value = false;
+        }, 100);
+        active.value = false
+      };
     });
 
     watch(playTrailer, (isPlayingTrailer: boolean) => {

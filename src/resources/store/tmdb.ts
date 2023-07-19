@@ -5,13 +5,15 @@ import { IMovie } from './../interfaces/IMovie';
 export const tmdbModule = {
   state() {
     return {
-      shows: <(IMovie | IShow)[]> [],
+      shows: {} as Record<string, (IMovie | IShow)[]>,
       searchedShows: <(IMovie | IShow)[]  | undefined> undefined
     };
   },
   mutations: {
-    setShows(state: any, shows: (IMovie | IShow)[]) {
-      state.shows = shows;
+    setShows(state: any, shows: Record<string, (IMovie | IShow)[]>) {
+      const currentShows = state.shows;
+      Object.assign(currentShows, shows);
+      state.shows.push(currentShows);
     },
 
     setSearchedShows(state: any, shows: (IMovie | IShow)[]) {
@@ -24,16 +26,20 @@ export const tmdbModule = {
   },
   actions: {
     fetchShows({commit, state}, userId: number) {
-        tmdb(tmdbPaths.fetchTrending).then(response => response.json())
-        .then((data: any) => {
-          commit('setShows', data.results);
-        });
-
-        tmdb(tmdbPaths.fetchHorrorMovies).then(response => response.json())
-        .then((data: any) => {
-          commit('setShows', data.results);
+        const catogoriesToFetch: string[] = ['fetchTrending','fetchTopRated','fetchActionMovies','fetchComedyMovies','fetchHorrorMovies','fetchRomanceMovies','fetchMystery','fetchSciFi','fetchWestern','fetchAnimation'];
+        catogoriesToFetch.forEach((category: string) => {
+          tmdb(tmdbPaths[category])
+            .then(res => res.json())
+            .then((data: any) => {
+              const showType = category.replace('fetch', '');
+              commit('setShows', {
+                [showType]: data.results
+              });
+            })
+            .catch((err) => console.log(err))
         });
     },
+
     searchShows ({commit}, searchQuery: string) {
       searchTmdb(searchQuery).then(response => {
         if (response.ok) {
