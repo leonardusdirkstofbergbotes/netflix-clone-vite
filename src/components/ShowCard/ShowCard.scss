@@ -38,13 +38,13 @@
         transform: scale(1.6) translateY(-40px);
         z-index: 2;
         
-        iframe {
+        embed {
             border-radius: 3px;
             width: 100%;
             min-height: 130px;  
         }
 
-        img, iframe {
+        img, embed {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }

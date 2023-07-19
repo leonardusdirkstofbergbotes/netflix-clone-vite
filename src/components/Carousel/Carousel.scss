@@ -31,6 +31,24 @@
     .next {
         right: -1rem;
     }
+
+    .total-pages {
+        display: flex;
+        gap: 0.2rem;
+        position: absolute;
+        top: -1rem;
+        right: 0;
+        
+        span {
+            width: 12px;
+            height: 2.5px;
+            background-color: $primary-color;
+
+            &.active-page {
+                background-color: white;
+            }
+        }
+    }
 }
 
 h2 {

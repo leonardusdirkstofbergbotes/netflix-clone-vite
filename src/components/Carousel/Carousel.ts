@@ -22,8 +22,10 @@ export default {
   },
 
   setup (props) {
-    const totalPagesAvailable = computed(() => props.items.length / props.itemsToDisplay);
+    const totalPagesAvailable = computed(() => Math.round(props.items.length / props.itemsToDisplay));
     const currentPage = ref<number>(1);   
+    const showTotalPages = ref<boolean>(false);
+    const showNavigation = ref<boolean>(false);
 
     const next = () => {
       if (currentPage.value < totalPagesAvailable.value) currentPage.value += 1;
@@ -38,6 +40,8 @@ export default {
     return {
       totalPagesAvailable,
       currentPage,
+      showTotalPages,
+      showNavigation,
       next, 
       previous
     }
