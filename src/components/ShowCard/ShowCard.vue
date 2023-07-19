@@ -2,7 +2,7 @@
     <div ref="cardRef" class="card-wrapper" @mouseleave="mouseLeaveHandler()">
         <div class="card" @mouseenter="hoverHandler($event)" :class="{ 'active': active }">
             <img v-if="!playTrailer" :src="`https://image.tmdb.org/t/p/w300${showDetails.backdrop_path}`" />
-            <iframe v-else :src="`https://www.youtube-nocookie.com/embed/${youtubeKey}?controls=0&autoplay=1&start=0&rel=0&fs=0&mute=1`" frameborder="0"></iframe>
+            <embed v-else :src="`https://www.youtube-nocookie.com/embed/${youtubeKey}?controls=0&autoplay=1&start=0&rel=0&fs=0&mute=1`" frameborder="0" />
 
             <div class="hover-actions" v-if="active">
                 <div class="card-actions">

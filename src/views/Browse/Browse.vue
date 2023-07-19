@@ -3,9 +3,9 @@
     <div class="browse">
         <search-results class="search-results-wrapper" v-if="hasSearchResults"></search-results>
         <div v-else>
-            <landing-page-show />
-            <div class="carousel-wrapper" v-for="(shows, name) in shows" :key="name">
-                <carousel :name="name" :items="shows" />
+            <!-- <landing-page-show /> -->
+            <div class="carousel-wrapper" v-for="(shows, title) in shows" :key="title">
+                <carousel :title="title" :items="shows" />
             </div>
         </div>
     </div>

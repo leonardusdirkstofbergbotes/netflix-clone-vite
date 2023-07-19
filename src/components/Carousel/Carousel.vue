@@ -1,6 +1,6 @@
 <template>
     <div class="carousel-wrapper">
-        <h2>{{ name }}</h2>
+        <h2>{{ title }}</h2>
         <div class="carousel">
             <div class="previous" @click="previous()">&lt;</div>
             <div v-for="(show, index) in items" :key="show.id">

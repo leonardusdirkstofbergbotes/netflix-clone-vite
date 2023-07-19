@@ -2,13 +2,17 @@ import { PropType, unref } from 'vue';
 import { ref, watch } from 'vue';
 import { IMovie } from '../../resources/interfaces/IMovie';
 import { getShow } from '../../utils/tmdb';
+import { IShow } from '../../resources/interfaces/IShow';
 
 export default {
   name: 'ShowCard',
   components: {
   },
   props: {
-    showDetails: [] as PropType<IMovie>
+    showDetails: {
+      type: Object as () => (IMovie | IShow),
+      default: () => ({})
+    }
   },
 
   setup (props) {

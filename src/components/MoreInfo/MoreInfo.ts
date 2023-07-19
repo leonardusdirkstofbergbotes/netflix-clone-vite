@@ -1,5 +1,6 @@
 import { PropType, ref, watch } from 'vue';
 import { IMovie } from '../../resources/interfaces/IMovie';
+import { IShow } from '../../resources/interfaces/IShow';
 export default {
   name: 'MoreInfo',
   components: {
@@ -9,7 +10,10 @@ export default {
     cardRef: HTMLElement,
     youtubeKey: String,
     timePlayedAlready: Number,
-    showDetails: [] as PropType<IMovie>
+    showDetails: {
+      type: Object as () => (IMovie | IShow),
+      default: () => ({})
+    }
   },
 
   emits: [

@@ -1,14 +1,18 @@
-import { PropType, computed, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { IMovie } from '../../resources/interfaces/IMovie';
+import { IShow } from '../../resources/interfaces/IShow';
 
 export default {
   name: 'Carousel',
   components: {
   },
   props: {
-    name: String,
+    title: {
+      type: String,
+      default: ''
+    },
     items: {
-      type: [] as PropType<IMovie[]>,
+      type: Array as () => (IMovie | IShow[]),
       default: () => []
     },
     itemsToDisplay: {
@@ -20,12 +24,6 @@ export default {
   setup (props) {
     const totalPagesAvailable = computed(() => props.items.length / props.itemsToDisplay);
     const currentPage = ref<number>(1);   
-
-    const itemsToDisplay = computed(() => {
-      const startIndex = (currentPage.value - 1) * props.itemsToDisplay;
-      const endIndex = startIndex + props.itemsToDisplay;
-      return props.items.slice(startIndex, endIndex);
-    });
 
     const next = () => {
       if (currentPage.value < totalPagesAvailable.value) currentPage.value += 1;
@@ -40,7 +38,6 @@ export default {
     return {
       totalPagesAvailable,
       currentPage,
-      itemsToDisplay,
       next, 
       previous
     }

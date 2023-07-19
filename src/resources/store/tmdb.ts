@@ -9,11 +9,12 @@ export const tmdbModule = {
       searchedShows: <(IMovie | IShow)[]  | undefined> undefined
     };
   },
+
   mutations: {
     setShows(state: any, shows: Record<string, (IMovie | IShow)[]>) {
-      const currentShows = state.shows;
+      const currentShows: Record<string, (IMovie | IShow)[]> = state.shows;
       Object.assign(currentShows, shows);
-      state.shows.push(currentShows);
+      state.shows = currentShows;
     },
 
     setSearchedShows(state: any, shows: (IMovie | IShow)[]) {
@@ -24,6 +25,7 @@ export const tmdbModule = {
       state.searchedShows = undefined;
     }
   },
+
   actions: {
     fetchShows({commit, state}, userId: number) {
         const catogoriesToFetch: string[] = ['fetchTrending','fetchTopRated','fetchActionMovies','fetchComedyMovies','fetchHorrorMovies','fetchRomanceMovies','fetchMystery','fetchSciFi','fetchWestern','fetchAnimation'];
@@ -33,7 +35,7 @@ export const tmdbModule = {
             .then((data: any) => {
               const showType = category.replace('fetch', '');
               commit('setShows', {
-                [showType]: data.results
+                [showType]: data.results as (IMovie | IShow)[]
               });
             })
             .catch((err) => console.log(err))
