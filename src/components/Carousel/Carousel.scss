@@ -4,14 +4,9 @@
     position: relative;
     margin: 0 auto;
     width: 93vw;
-}
-
-.carousel {
-    border: 1px solid brown;
-    display: flex;
-    gap: 0.5rem;
 
     .next, .previous {
+        top: 0;
         background-color: rgba(0, 0, 0, 0.543);
         width: 50px;
         display: flex;
@@ -49,6 +44,13 @@
             }
         }
     }
+}
+
+.carousel {
+    border: 1px solid brown;
+    display: flex;
+    gap: 0.5rem;
+    transition: transform 0.3s ease-in-out;
 }
 
 h2 {
