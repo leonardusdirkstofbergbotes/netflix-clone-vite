@@ -1,7 +1,7 @@
 <template>
     <div class="expanded-card" :class="{ 'expanded': expanded }" :style="positionOfPopup">
         <img v-if="!expanded || !youtubeKey" :src="`https://image.tmdb.org/t/p/w300${showDetails.backdrop_path}`" />
-        <embed v-else :src="`https://www.youtube-nocookie.com/embed/${youtubeKey}?controls=0&autoplay=1&start=0&rel=0&fs=0&mute=1&start=${startPlayingVideoFrom}`" frameborder="0" />
+        <embed v-else :src="`https://www.youtube-nocookie.com/embed/${youtubeKey}?start=${startPlayingVideoFrom}&controls=0&autoplay=1&start=0&rel=0&fs=0&mute=1`" frameborder="0" />
         <icon-button icon="close" class="close-expanded" @click="closeCard()"></icon-button>
         <div class="expanded-card-actions">
             <div class="grid">
